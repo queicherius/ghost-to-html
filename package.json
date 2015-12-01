@@ -1,0 +1,22 @@
+{
+  "name": "ghost-to-html",
+  "version": "1.0.0",
+  "description": "Exports ghost blogposts into plain html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Reeß",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "ghost-to-html": "index.js"
+  },
+  "dependencies": {
+    "fs-extra": "^0.26.2",
+    "ghost-export": "^1.2.2",
+    "md5": "2.0.0",
+    "mkpath": "^1.0.0",
+    "rimraf": "^2.4.4",
+    "showdown-ghost": "^0.4.0"
+  }
+}
