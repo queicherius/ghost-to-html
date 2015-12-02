@@ -5,6 +5,7 @@ var fs = require('fs-extra')
 var mkpath = require('mkpath')
 var md5 = require('md5')
 var rimraf = require('rimraf')
+var exportMetadata = require('./export-metadata')
 
 function replaceAll (string, find, replace) {
   return string.replace(new RegExp(find.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1'), 'g'), replace)
@@ -74,5 +75,10 @@ rimraf('./+(html|markdown)', function () {
 
       fs.writeFileSync('./html/' + markdown_files[i].replace(/.md$/, '.html'), html)
     }
+
+    console.log('Exporting metadata')
+    exportMetadata('.', function (meta) {
+      fs.writeFileSync('./html/metadata.json', JSON.stringify(meta))
+    })
   })
 })
