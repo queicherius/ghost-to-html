@@ -11,7 +11,8 @@ module.exports = function (source, callback) {
     db.all('SELECT posts.title, posts.slug, tags.name, posts.published_at \
             FROM posts \
             LEFT OUTER JOIN posts_tags ON posts.id = posts_tags.post_id \
-            LEFT OUTER JOIN tags ON posts_tags.tag_id = tags.id', function (err, rows) {
+            LEFT OUTER JOIN tags ON posts_tags.tag_id = tags.id \
+            WHERE status IS NOT "draft"', function (err, rows) {
       if (err) throw err
 
       var post_metadata = {}
