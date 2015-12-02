@@ -57,7 +57,6 @@ rimraf('./+(html|markdown)', function () {
       html = replaceAll(html, '<p><a href=""></a><div', '<div')
       html = replaceAll(html, '</div></p>', '</div>')
       html = replaceAll(html, '&amp;', '&')
-      html = replaceAll(html, '&amp;', '&')
 
       // For some reason, showdown doesnt generate images D:
       html = html.replace(/!\[([^\]]*)\]\(([^\)]*)\)/g, '<img src="$2" alt="$1" title="$1"/>')
@@ -76,7 +75,7 @@ rimraf('./+(html|markdown)', function () {
       fs.writeFileSync('./html/' + markdown_files[i].replace(/.md$/, '.html'), html)
     }
 
-    console.log('Exporting metadata')
+    console.log('Exporting metadata...')
     exportMetadata('.', function (meta) {
       fs.writeFileSync('./html/metadata.json', JSON.stringify(meta))
     })

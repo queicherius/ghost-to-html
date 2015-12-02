@@ -8,11 +8,15 @@ module.exports = function (source, callback) {
   })
 
   db.serialize(function () {
-    db.all('SELECT posts.title, posts.slug, tags.name, posts.published_at FROM posts LEFT OUTER JOIN posts_tags ON posts.id = posts_tags.post_id LEFT OUTER JOIN tags ON posts_tags.tag_id = tags.id', function (err, rows) {
+    db.all('SELECT posts.title, posts.slug, tags.name, posts.published_at \
+            FROM posts \
+            LEFT OUTER JOIN posts_tags ON posts.id = posts_tags.post_id \
+            LEFT OUTER JOIN tags ON posts_tags.tag_id = tags.id', function (err, rows) {
       if (err) throw err
 
       var post_metadata = {}
 
+      // Go through every post and save them in the format filename -> {title, [tags]}
       for (var i = 0; i !== rows.length; i++) {
         var slug = dateFormat(new Date(rows[i].published_at), 'yyyy-mm-dd-') + rows[i].slug
 
