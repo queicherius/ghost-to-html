@@ -1,6 +1,6 @@
 {
   "name": "ghost-to-html",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Convert a Ghost blog into a set of HTML files and an image folder.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
