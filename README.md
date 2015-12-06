@@ -1,16 +1,24 @@
 # Ghost to HTML Converter
 
-A tiny script to convert a [Ghost Blog](http://tryghost.org) into a set of HTML files and an image folder. 
-You can use this to convert Ghost into a editing platform for systems that expect raw HTML (as we do at [gw2efficiency](http://gw2efficiency.com)).
+A tiny script to convert a [Ghost blog](http://tryghost.org) into a set of HTML files and an image folder. 
+You can use this to convert Ghost into a editing platform for systems that expect raw HTML.
 
 **Disclaimer:** This is pretty hacky. Beware.
 
 ## Usage
 
+**Warning:** This will clear any `/html` and any `/markdown` folders you have in the directory you run the command in.
+
 ```bash
+npm install -g ghost-to-html
 cd your-ghost-directory
-git clone https://github.com/queicherius/ghost-to-html.git
-node ghost-to-html/index.js
+ghost-to-html
 ```
 
-After running these commands there should be a `markdown/` folder, containing all your blog posts in markdown and a `html/` folder containing all your blogposts and images in parsed html.
+After running these commands you get this folder structure generated:
+
+```
+- markdown/             All your blogposts in markdown
+- html/                 All your blogposts in html
+    - images/           All the images in your blogsposts
+```

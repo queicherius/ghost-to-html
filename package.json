@@ -1,12 +1,12 @@
 {
   "name": "ghost-to-html",
-  "version": "1.0.0",
-  "description": "Exports ghost blogposts into plain html",
+  "version": "1.0.1",
+  "description": "Convert a Ghost blog into a set of HTML files and an image folder.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Reeß",
-  "license": "ISC",
+  "license": "MIT",
   "preferGlobal": true,
   "bin": {
     "ghost-to-html": "index.js"
