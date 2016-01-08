@@ -22,18 +22,20 @@ function matchAll (string, regex, capture_group) {
   return matches
 }
 
+var destination = process.argv[2] ? process.argv[2].replace(/\/$/, '') : '.'
+
 // Create directories
-console.log('Cleaning and creating directories...')
-rimraf('./+(html|markdown)', function () {
-  mkpath.sync('./markdown')
-  mkpath.sync('./html')
-  mkpath.sync('./html/images')
+console.log('Cleaning and creating directories... (' + destination + '/)')
+rimraf(destination + '/+(html|markdown)', function () {
+  mkpath.sync(destination + '/markdown')
+  mkpath.sync(destination + '/html')
+  mkpath.sync(destination + '/html/images')
 
   // Export markdown
   console.log('Exporting ghost files to markdown...')
   GhostExport({
     source: '.',
-    destination: './markdown',
+    destination: destination + '/markdown',
     published: true,
     drafts: false
   }, function (err, count) {
@@ -42,12 +44,12 @@ rimraf('./+(html|markdown)', function () {
     console.log('Converting markdown into html...')
 
     // Read markdown files
-    var markdown_files = fs.readdirSync('./markdown')
+    var markdown_files = fs.readdirSync(destination + '/markdown')
     console.log(markdown_files.length + ' markdown files')
 
     // Convert & save markdown files
     for (var i = 0; i !== markdown_files.length; i++) {
-      var md = fs.readFileSync('./markdown/' + markdown_files[i], {encoding: 'utf-8'})
+      var md = fs.readFileSync(destination + '/markdown/' + markdown_files[i], {encoding: 'utf-8'})
       var html = generateValidHtml(md)
 
       // Replace link urls with hashes that are easier to manage & save them in a subdirectory
@@ -58,15 +60,15 @@ rimraf('./+(html|markdown)', function () {
         var hash = 'images/' + md5(link) + ending
 
         html = replaceAll(html, link, hash)
-        fs.copySync('.' + link, './html/' + hash)
+        fs.copySync('.' + link, destination + '/html/' + hash)
       }
 
-      fs.writeFileSync('./html/' + markdown_files[i].replace(/.md$/, '.html'), html)
+      fs.writeFileSync(destination + '/html/' + markdown_files[i].replace(/.md$/, '.html'), html)
     }
 
     console.log('Exporting metadata...')
     exportMetadata('.', function (meta) {
-      fs.writeFileSync('./html/metadata.json', JSON.stringify(meta))
+      fs.writeFileSync(destination + '/html/metadata.json', JSON.stringify(meta))
     })
   })
 })
