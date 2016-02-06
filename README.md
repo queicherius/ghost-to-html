@@ -3,7 +3,7 @@
 A tiny script to convert a [Ghost blog](http://tryghost.org) into a set of HTML files and an image folder. 
 You can use this to convert Ghost into a editing platform for systems that expect raw HTML.
 
-**Disclaimer:** This is pretty hacky. Beware.
+**:bomb: Disclaimer:** This is pretty hacky. Beware.
 
 ## Usage
 
