@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "dateformat": "^1.0.12",
-    "fs-extra": "^0.26.2",
+    "fs-extra": "^0.30.0",
     "ghost-export": "^1.2.2",
-    "md5": "2.0.0",
+    "md5": "2.2.1",
     "mkpath": "^1.0.0",
     "path": "^0.12.7",
     "rimraf": "^2.4.4",
