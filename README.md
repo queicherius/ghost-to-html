@@ -1,5 +1,7 @@
 # Ghost to HTML Converter
 
+[![No Maintenance Intended](https://img.shields.io/badge/No%20Maintenance%20Intended-%E2%9C%95-red.svg?style=flat-square)](http://unmaintained.tech/)
+
 A tiny script to convert a [Ghost blog](http://tryghost.org) into a set of HTML files and an image folder. 
 You can use this to convert Ghost into a editing platform for systems that expect raw HTML.
 
