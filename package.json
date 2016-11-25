@@ -12,7 +12,7 @@
     "ghost-to-html": "index.js"
   },
   "dependencies": {
-    "dateformat": "^1.0.12",
+    "dateformat": "^2.0.0",
     "fs-extra": "^1.0.0",
     "ghost-export": "^1.2.2",
     "md5": "2.2.1",
