@@ -1,6 +1,8 @@
-# Ghost to HTML Converter
+### :boom: Careful: This package is no longer maintained and is only here for historic reasons. This means you should very likely not use it. You have been warned. :boom:
 
-[![No Maintenance Intended](https://img.shields.io/badge/No%20Maintenance%20Intended-%E2%9C%95-red.svg?style=flat-square)](http://unmaintained.tech/)
+---
+
+# Ghost to HTML Converter
 
 A tiny script to convert a [Ghost blog](http://tryghost.org) into a set of HTML files and an image folder. 
 You can use this to convert Ghost into a editing platform for systems that expect raw HTML.
